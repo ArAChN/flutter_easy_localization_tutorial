@@ -28,24 +28,17 @@ class _CounterExampleState extends State<CounterExample> {
               '$_counter times',
               style: Theme.of(context).textTheme.headline4,
             ),
+            SizedBox(height: 48),
+            ElevatedButton(
+              onPressed: () => _updateCounter(1),
+              child: Text('Increase'),
+            ),
+            ElevatedButton(
+              onPressed: () => _updateCounter(-1),
+              child: Text('Decrease'),
+            ),
           ],
         ),
-      ),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          FloatingActionButton(
-            onPressed: () => _updateCounter(1),
-            tooltip: 'Increment',
-            child: Icon(Icons.add),
-          ),
-          SizedBox(height: 8),
-          FloatingActionButton(
-            onPressed: () => _updateCounter(-1),
-            tooltip: 'Decrement',
-            child: Icon(Icons.remove),
-          )
-        ],
       ),
     );
   }
