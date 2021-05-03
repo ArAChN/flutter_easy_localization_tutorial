@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CounterExample extends StatefulWidget {
@@ -17,25 +18,25 @@ class _CounterExampleState extends State<CounterExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Counter'),
+        title: Text('counter'.tr()),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('You have pushed the button:'),
+            Text('counter_description'.tr()),
             Text(
-              '$_counter times',
+              'press_times'.plural(_counter),
               style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(height: 48),
             ElevatedButton(
               onPressed: () => _updateCounter(1),
-              child: Text('Increase'),
+              child: Text('increase'.tr()),
             ),
             ElevatedButton(
               onPressed: () => _updateCounter(-1),
-              child: Text('Decrease'),
+              child: Text('decrease'.tr()),
             ),
           ],
         ),

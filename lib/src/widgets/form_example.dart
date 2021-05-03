@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class FormExample extends StatefulWidget {
@@ -14,20 +15,20 @@ class _FormExampleState extends State<FormExample> {
   final _repeatPasswordController = TextEditingController();
 
   String? emailValidator(String? value) {
-    return (value == null || value.isEmpty) ? 'This is a required field' : null;
+    return (value == null || value.isEmpty) ? 'required_field'.tr() : null;
   }
 
   String? passwordValidator(String? value) {
-    if (value == null || value.isEmpty) return 'This is a required field';
-    if (value.length < 6) return 'Password should be at least 6 letters';
-    if (_passwordController.text != _repeatPasswordController.text) return 'Password do not match';
+    if (value == null || value.isEmpty) return 'required_field'.tr();
+    if (value.length < 6) return 'password_length'.tr();
+    if (_passwordController.text != _repeatPasswordController.text) return 'password_match'.tr();
     return null;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Create account')),
+      appBar: AppBar(title: Text('form'.tr())),
       body: Form(
         key: _formKey,
         child: Padding(
@@ -38,27 +39,27 @@ class _FormExampleState extends State<FormExample> {
               SizedBox(height: 8),
               TextFormField(
                 controller: _emailController,
-                decoration: InputDecoration(labelText: 'Email'),
+                decoration: InputDecoration(labelText: 'email'.tr()),
                 validator: emailValidator,
               ),
               SizedBox(height: 8),
               TextFormField(
                 controller: _passwordController,
-                decoration: InputDecoration(labelText: 'Password'),
+                decoration: InputDecoration(labelText: 'password'.tr()),
                 validator: passwordValidator,
               ),
               SizedBox(height: 8),
               TextFormField(
                 controller: _repeatPasswordController,
-                decoration: InputDecoration(labelText: 'Repeat Password'),
+                decoration: InputDecoration(labelText: 'repeat_password'.tr()),
                 validator: passwordValidator,
               ),
               Center(
                 child: ElevatedButton(
-                  child: const Text('Create'),
+                  child: Text('submit'.tr()),
                   onPressed: () {
                     if (_formKey.currentState?.validate() == true) {
-                      final snackBar = SnackBar(content: Text('Account created!!!'));
+                      final snackBar = SnackBar(content: Text('submit_success'.tr()));
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     }
                   },

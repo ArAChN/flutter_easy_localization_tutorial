@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easy_localization/src/navigation/routes.dart';
 
@@ -6,7 +7,7 @@ class HomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Choose an option'),
+        title: Text('choose_an_option'.tr()),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 48),
@@ -16,11 +17,11 @@ class HomeWidget extends StatelessWidget {
           children: <Widget>[
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, Routes.counterExample),
-              child: Text('Counter'),
+              child: Text('counter'.tr()),
             ),
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, Routes.formExample),
-              child: Text('Form'),
+              child: Text('form'.tr()),
             ),
           ],
         ),
